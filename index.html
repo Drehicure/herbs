@@ -470,9 +470,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
+            margin: 0 auto 16px;
             color: white;
             font-size: 40px;
+            flex-shrink: 0;
         }
 
         .feature-icon img {
@@ -486,6 +487,7 @@
             margin-bottom: 10px;
             color: #333;
             font-weight: bold;
+            word-break: break-word;
         }
 
         .feature-text {
@@ -1051,54 +1053,14 @@
            TABLET — 992px and below
         ================================================================ */
         @media (max-width: 992px) {
-            /* Nav: hide desktop links, show hamburger */
             .nav-links { display: none; }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            /* Services: stack on tablet */
-            .services {
-                flex-direction: column;
-                border-radius: 10px;
-                margin-top: -30px;
-            }
-
-            .service-box:nth-child(1) { border-radius: 10px 10px 0 0; }
-            .service-box:nth-child(3) { border-radius: 0 0 10px 10px; }
-
-            /* Features: 3 cols on tablet */
-            .features-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .feature-item:nth-child(3)::after { display: none; }
+            .menu-toggle { display: flex; }
             .feature-item::after { display: none; }
-
-            /* Products: 2 cols */
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            /* No regrets: stack */
-            .no-regrets-container {
-                flex-direction: column;
-            }
-
-            .no-regrets-gallery {
-                width: 100%;
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            /* Contact: stack */
-            .contact-content {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
-            }
-
-            /* Social sidebar: hide on tablet+ narrow */
+            .features-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .no-regrets-container { flex-direction: column; }
+            .no-regrets-gallery { width: 100%; grid-template-columns: repeat(4, 1fr); }
+            .contact-content { flex-direction: column; align-items: flex-start; gap: 16px; }
             .social-sidebar { display: none; }
             .nav-dots { display: none; }
         }
@@ -1107,86 +1069,149 @@
            MOBILE — 768px and below
         ================================================================ */
         @media (max-width: 768px) {
-            /* Top bar: stack */
-            .top-bar-content {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 4px;
-                font-size: 12px;
-                white-space: normal;
-            }
 
-            .contact-info-topbar { gap: 10px; flex-wrap: wrap; }
+            /* Top bar */
+            .top-bar { padding: 4px 0; }
+            .top-bar-content { flex-wrap: wrap; gap: 3px 8px; font-size: 10px; }
+            .contact-info-topbar { gap: 6px; }
+            .contact-info-item i { font-size: 10px; margin-right: 3px; }
 
-            /* Logo: slightly smaller */
-            .logo img { height: 34px; }
+            /* Logo */
+            .logo img { height: 32px; }
 
             /* Hero */
-            .hero-content {
-                padding: 100px 16px 50px;
-            }
+            .hero { min-height: auto; }
+            .hero-content { padding: 80px 12px 36px; }
+            .hero h1 { font-size: 16px; margin-bottom: 8px; line-height: 1.3; }
+            .hero h1.hero-tagline { font-size: 14px; margin-top: -4px; }
+            .hero p { font-size: 11px; line-height: 1.5; margin-bottom: 14px; }
+            .leaf { width: 28px; }
+            .btn { padding: 8px 16px; font-size: 12px; border-radius: 20px; }
 
-            /* About section padding */
-            .about { padding: 60px 0; }
-
-            /* Features: 2 cols on mobile */
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
-            }
-
-            /* Products: single col on small mobile */
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-
-            /* No regrets gallery: 2 col */
-            .no-regrets-gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            /* Contact wrapping */
-            .contact-phone { width: 100%; justify-content: center; }
-            .contact-btn { width: 100%; justify-content: center; }
-
-            /* Footer top: stack */
-            .footer-top { flex-direction: column; }
-            .footer-social { text-align: left; }
-            .social-icons { justify-content: flex-start; }
-
-            /* Footer columns: stack */
-            .footer-columns { flex-direction: column; }
-            .footer-column { min-width: unset; }
-
-            /* Order btn: full width */
-            .order-btn-large {
-                display: block;
-                margin: 0 20px 30px;
+            /* Services: 3-col horizontal row */
+            .services { flex-direction: row; margin-top: -14px; border-radius: 6px; }
+            .service-box {
+                flex: 1;
+                flex-direction: column;
+                align-items: center;
                 text-align: center;
+                padding: 10px 4px;
+                gap: 4px;
             }
+            .service-box:nth-child(1) { border-radius: 6px 0 0 6px; }
+            .service-box:nth-child(2) { border-radius: 0; }
+            .service-box:nth-child(3) { border-radius: 0 6px 6px 0; }
+            .service-icon img { width: 22px !important; height: 22px !important; }
+            .service-content h3 { font-size: 9px; line-height: 1.3; font-weight: 600; }
 
-            /* Bottom fixed buttons: resize */
-            .whatsapp-btn { width: 50px; height: 50px; font-size: 24px; right: 14px; bottom: 14px; }
-            .back-to-top { width: 36px; height: 36px; font-size: 16px; right: 74px; bottom: 14px; }
-            .chat-bubble { width: 50px; height: 50px; font-size: 20px; }
+            /* About */
+            .about { padding: 32px 0; }
+            .about-company { font-size: 11px; margin-bottom: 6px; }
+            .section-title h2 { font-size: 14px; margin-bottom: 8px; line-height: 1.3; }
+            .about-text { font-size: 11px; margin-bottom: 20px; line-height: 1.5; }
+            .read-more-btn { padding: 8px 16px; font-size: 11px; margin-top: 20px; border-radius: 20px; }
+
+            /* Features: 3-col grid */
+            .features-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 16px; }
+            .feature-item { padding: 0 2px; }
+            .feature-icon { width: 44px; height: 44px; font-size: 18px; margin-bottom: 7px; }
+            .feature-icon img { width: 52%; height: 52%; }
+            .feature-title { font-size: 10px; margin-bottom: 4px; line-height: 1.3; }
+            .feature-text { font-size: 9.5px; line-height: 1.4; }
+
+            /* Products: 3-col compact grid */
+            .products { padding: 32px 0; }
+            .products-header .online-text { font-size: 11px; margin-bottom: 4px; }
+            .products-header h2 { font-size: 15px; margin-bottom: 6px; }
+            .products-header .sub-text { font-size: 11px; }
+            .product-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
+            .product-img { height: 90px; }
+            .product-info { padding: 8px; }
+            .product-info h3 { font-size: 10px; margin-bottom: 5px; line-height: 1.3; }
+            .product-info p { font-size: 9px; line-height: 1.4; margin-bottom: 6px; }
+            .product-rating { font-size: 9px; margin-bottom: 4px; }
+            .view-more { margin-top: 16px; }
+            .view-more-btn { padding: 8px 16px; font-size: 11px; border-radius: 20px; }
+
+            /* No Regrets */
+            .no-regrets { padding: 32px 0; }
+            .no-regrets-container { flex-direction: column; gap: 16px; padding: 0 12px; }
+            .no-regrets-gallery { width: 100%; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+            .no-regrets-logo { width: 36px; height: 36px; margin-bottom: 8px; }
+            .no-regrets-title { font-size: 15px; margin-bottom: 10px; }
+            .no-regrets-text { font-size: 11px; line-height: 1.5; margin-bottom: 8px; }
+            .no-regrets-btn { padding: 8px 16px; font-size: 11px; border-radius: 20px; margin-top: 6px; }
+
+            /* Contact */
+            .contact { padding: 22px 0; }
+            .contact-content { flex-direction: column; align-items: stretch; gap: 10px; }
+            .contact-text p { font-size: 11px; }
+            .contact-phone { padding: 9px 14px; border-radius: 30px; justify-content: center; }
+            .contact-phone i { font-size: 15px; margin-right: 7px; }
+            .contact-phone span { font-size: 14px; }
+            .contact-btn { padding: 9px 14px; font-size: 11px; justify-content: center; border-radius: 20px; }
+
+            /* Footer */
+            .main-footer { padding: 20px 0 0; }
+            .order-btn-large { display: block; margin: 0 12px 20px; text-align: center; font-size: 12px; padding: 10px 16px; border-radius: 30px; }
+            .footer-dark { padding: 24px 0 12px; }
+            .footer-top { flex-direction: column; gap: 14px; margin-bottom: 18px; }
+            .footer-payment { gap: 10px; }
+            .footer-badges { gap: 8px; }
+            .footer-badge { width: 34px; height: 34px; }
+            .payment-text { font-size: 10px; margin-bottom: 4px; }
+            .payment-platforms { gap: 6px; }
+            .payment-icon { width: 26px; height: 26px; font-size: 12px; }
+            .footer-social { text-align: left; }
+            .social-text { font-size: 12px; margin-bottom: 8px; }
+            .social-icons { justify-content: flex-start; gap: 8px; }
+            .social-icon { width: 34px; height: 34px; font-size: 15px; }
+            .footer-columns { flex-direction: column; gap: 16px; margin-bottom: 18px; }
+            .footer-column { min-width: unset; }
+            .footer-column h3 { font-size: 13px; margin-bottom: 10px; }
+            .footer-column p { font-size: 11px; line-height: 1.6; margin-bottom: 6px; }
+            .contact-item { margin-bottom: 8px; }
+            .contact-item i { font-size: 12px; }
+            .contact-item p { font-size: 11px; }
+            .footer-bottom { font-size: 10px; padding-top: 12px; }
+
+            /* Fixed buttons */
+            .whatsapp-btn { width: 40px; height: 40px; font-size: 18px; right: 10px; bottom: 10px; }
+            .back-to-top { width: 30px; height: 30px; font-size: 13px; right: 58px; bottom: 10px; }
+            .chat-widget { bottom: 10px; left: 10px; }
+            .chat-bubble { width: 40px; height: 40px; font-size: 16px; }
         }
 
         /* ================================================================
            SMALL MOBILE — 480px and below
         ================================================================ */
         @media (max-width: 480px) {
-            .features-grid { grid-template-columns: 1fr; }
+            /* Services: keep 3-col, tighter */
+            .services { margin-top: -10px; }
+            .service-box { padding: 8px 3px; }
+            .service-icon img { width: 18px !important; height: 18px !important; }
+            .service-content h3 { font-size: 8px; }
+
+            /* Features: keep 3-col */
+            .features-grid { gap: 6px; margin-top: 12px; }
+            .feature-icon { width: 38px; height: 38px; font-size: 15px; margin-bottom: 5px; }
+            .feature-title { font-size: 9px; }
+            .feature-text { font-size: 8.5px; }
+
+            /* Products: keep 3-col */
+            .product-grid { gap: 6px; }
+            .product-img { height: 70px; }
+            .product-info { padding: 6px; }
+            .product-info h3 { font-size: 9px; }
+            .product-info p { font-size: 8px; }
+            .product-rating { font-size: 8px; }
+
+            /* Hero */
+            .hero h1 { font-size: 14px; }
+            .hero h1.hero-tagline { font-size: 13px; }
+            .hero p { font-size: 10px; }
 
             .no-regrets-gallery { grid-template-columns: repeat(2, 1fr); }
-
-            .services { margin-top: -20px; }
-
-            .service-box { padding: 20px 14px; }
-
-            .products { padding: 50px 0; }
-            .about { padding: 50px 0; }
-            .no-regrets { padding: 50px 0; }
-            .contact { padding: 30px 0; }
         }
 
         /* Scrolled header: dark links on light bg */
