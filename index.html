@@ -17,6 +17,7 @@
         body {
             overflow-x: hidden;
             color: #333;
+            min-width: 1200px;
         }
         
         a {
@@ -33,13 +34,64 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: #8bc34a;
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: 0 auto;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none;
+        }
+        
+        .top-bar-content::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .contact-info-topbar {
+            display: flex;
+            gap: 15px;
+            flex-wrap: nowrap;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info-item i {
+            margin-right: 6px;
+            font-size: 14px;
+        }
         
         /* Header and Navigation */
         header {
             position: absolute;
             width: 100%;
             z-index: 1000;
-            padding: 20px 0;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .container.header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo img {
+            height: 40px;
         }
         
         nav {
@@ -51,6 +103,9 @@
         .nav-links {
             display: flex;
             gap: 30px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
         
         .nav-links a {
@@ -60,6 +115,7 @@
             position: relative;
             padding: 5px 0;
             transition: color 0.3s;
+            text-decoration: none;
         }
         
         .nav-links a:hover {
@@ -68,6 +124,10 @@
         
         .nav-links li:first-child a {
             color: #8bc34a;
+        }
+
+        .menu-toggle {
+            display: none;
         }
         
         /* Hero Section */
@@ -375,68 +435,6 @@
         .read-more-btn i {
             margin-left: 8px;
         }
-        header {
-    background-color: #f8f8f8;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-.container.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo img {
-    height: 40px;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: #333;
-}
-
-/* Mobile menu icon */
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
-    nav {
-        display: none;
-        width: 100%;
-    }
-
-    nav.open {
-        display: block;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        background-color: #f8f8f8;
-        padding: 10px 0;
-    }
-
-    .nav-links li {
-        text-align: center;
-        padding: 10px 0;
-    }
-}
         
         /* Products Section */
         .products {
@@ -871,7 +869,7 @@
             font-size: 18px;
             width: 20px;
         }
-        
+
         .contact-item a {
             color: #ccc;
             transition: color 0.3s;
@@ -949,155 +947,61 @@
         .back-to-top:hover {
             transform: translateY(-5px);
         }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 40px;
-            }
-            
-            .hero h1 span {
-                font-size: 48px;
-            }
-            
 
-            
-            .features-grid {
-                flex-wrap: wrap;
-            }
-            
-
-            
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .no-regrets-container {
-                flex-direction: column;
-            }
-            
-            .no-regrets-gallery {
-                width: 100%;
-                margin-right: 0;
-                margin-bottom: 30px;
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
-            }
-            
-            .contact-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .contact-text {
-                margin-bottom: 20px;
-            }
-            
-            .contact-phone {
-                margin: 0 0 20px;
-            }
-            
-            .footer-top {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .footer-payment {
-                margin-bottom: 30px;
-            }
-            
-            .footer-social {
-                text-align: left;
-            }
-            
-            .social-icons {
-                justify-content: flex-start;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .footer-bottom p {
-                margin-bottom: 10px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                width: 90%;
-            }
-            
-            .hero h1 {
-                font-size: 32px;
-            }
-            
-            .hero h1 span {
-                font-size: 38px;
-            }
-            
-            .hero p {
-                font-size: 14px;
-            }
-            
-
-            
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .no-regrets-gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-column {
-                flex: 0 0 100%;
-            }
-        }
-
-        /* Top Bar */
-        .top-bar {
-            background-color: #8bc34a;
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            padding: 8px 0;
-            font-size: clamp(10px, 1vw, 14px);
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s;
         }
-        
-        .top-bar-content {
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Navigation Dots */
+        .nav-dots {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 99;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 85%;
-            max-width: 1200px;
-            margin: 0 auto;
-            overflow-x: auto;
-            scrollbar-width: none;
+            flex-direction: column;
+            gap: 10px;
         }
-        
-        .top-bar-content::-webkit-scrollbar {
-            display: none;
+
+        .nav-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background 0.3s;
         }
-        
-        .top-bar .contact-info {
-            display: flex;
-            gap: 20px;
-            white-space: nowrap;
-        }
-        
-        .top-bar .contact-info-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            white-space: nowrap;
+
+        .nav-dot.active {
+            background: #8bc34a;
         }
     </style>
 </head>
+<body>
     <!-- Top Bar -->
     <div class="top-bar">
         <div class="top-bar-content">
-            <div class="contact-info">
+            <div class="contact-info-topbar">
                 <div class="contact-info-item">
                     <i class="fas fa-phone"></i>
                     <span>+2347055029151</span>
@@ -1114,32 +1018,26 @@
         </div>
     </div>
 
-<!-- Header -->
-<!-- Header -->
-<header>
-    <div class="container header-container">
-        <!-- Logo -->
-        <div class="logo">
-            <a href="index.html"><img src="image/92d84969-ebf5-4b61-a61d-29ee368a6b41-removebg-preview (1).png" alt="Logo" /></a>
-        </div>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="index.html"><img src="image/92d84969-ebf5-4b61-a61d-29ee368a6b41-removebg-preview (1).png" alt="Logo" /></a>
+            </div>
 
-        <!-- Mobile Menu Icon -->
-        <div class="menu-toggle" id="menu-toggle">
-            ☰
+            <!-- Navigation -->
+            <nav id="nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="reviews.html">Reviews About Dr Ehi Herbs</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
         </div>
-
-        <!-- Navigation -->
-        <nav id="nav">
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="reviews.html">Reviews About Dr Ehi Herbs</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    </header>
 
     <!-- Social Sidebar -->
     <div class="social-sidebar">
@@ -1195,7 +1093,7 @@
                     <img src="image/12180149_supplement_health_nutrition_medical_diet_icon.png?height=40&width=40" alt="Herbs icon" style="width: 40px; height: 40px;">
                 </div>
                 <div class="service-content">
-                    <h3>Herbs & Supplement</h3>
+                    <h3>Herbs &amp; Supplement</h3>
                 </div>
             </div>
         </div>
@@ -1482,7 +1380,7 @@
                 </div>
                 
                 <div class="footer-bottom">
-                    <p>2025 © All Rights Reserved - <a href="#">Dr Ehi Herbs Online</a></p>
+                    <p>2025 &copy; All Rights Reserved - <a href="#">Dr Ehi Herbs Online</a></p>
                 </div>
             </div>
         </div>
@@ -1506,54 +1404,61 @@
     </a>
 
     <script>
-        // Simple JavaScript for basic interactions
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add scroll effect to header
-            window.addEventListener('scroll', function() {
-                const header = document.querySelector('header');
-                const backToTop = document.querySelector('.back-to-top');
-                
+        // Proportional scaling — makes the page look exactly like desktop, scaled down on mobile
+        (function () {
+            var BASE_WIDTH = 1200;
+
+            function applyScale() {
+                var vw = window.innerWidth;
+                if (vw < BASE_WIDTH) {
+                    var scale = vw / BASE_WIDTH;
+                    document.documentElement.style.zoom = scale;
+                } else {
+                    document.documentElement.style.zoom = '';
+                }
+            }
+
+            applyScale();
+            window.addEventListener('resize', applyScale);
+        })();
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Scroll effect for header
+            window.addEventListener('scroll', function () {
+                var header = document.querySelector('header');
+                var backToTop = document.querySelector('.back-to-top');
+
                 if (window.scrollY > 100) {
                     header.style.background = 'rgba(255, 255, 255, 0.9)';
-                    document.querySelectorAll('.nav-links a').forEach(link => {
+                    document.querySelectorAll('.nav-links a').forEach(function (link) {
                         link.style.color = '#333';
                     });
                     backToTop.classList.add('visible');
                 } else {
                     header.style.background = 'transparent';
-                    document.querySelectorAll('.nav-links a').forEach(link => {
+                    document.querySelectorAll('.nav-links a').forEach(function (link) {
                         link.style.color = 'white';
                     });
-                    document.querySelector('.nav-links li:first-child a').style.color = '#8bc34a';
+                    var firstLink = document.querySelector('.nav-links li:first-child a');
+                    if (firstLink) firstLink.style.color = '#8bc34a';
                     backToTop.classList.remove('visible');
                 }
             });
-            
-            const menuToggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('nav');
 
-    menuToggle.addEventListener('click', () => {
-        nav.classList.toggle('open');
-    });
-            
-            // Navigation dots functionality
-            const navDots = document.querySelectorAll('.nav-dot');
-            navDots.forEach((dot, index) => {
-                dot.addEventListener('click', function() {
-                    navDots.forEach(d => d.classList.remove('active'));
-                    this.classList.add('active');
-                    // Here you would add scroll functionality to different sections
+            // Navigation dots
+            var navDots = document.querySelectorAll('.nav-dot');
+            navDots.forEach(function (dot) {
+                dot.addEventListener('click', function () {
+                    navDots.forEach(function (d) { d.classList.remove('active'); });
+                    dot.classList.add('active');
                 });
             });
-            
-            // Back to top functionality
-            const backToTop = document.querySelector('.back-to-top');
-            backToTop.addEventListener('click', function(e) {
+
+            // Back to top
+            var backToTop = document.querySelector('.back-to-top');
+            backToTop.addEventListener('click', function (e) {
                 e.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
     </script>
